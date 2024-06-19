@@ -2,9 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RickAndMortyApp" parent="Theme.Material3.DayNight.NoActionBar">
        <item name="colorPrimary" >#0D4C08</item> <!-- Customize your light theme here. -->
-        <item name="android:fontFamily">@font</item>        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="ToolbarTextStyle">
+        <item name="android:fontFamily">@font/get_schwifty</item>
+        <item name="android:textSize">35dp</item>
+    </style>
 
     <style name="Theme.RickAndMortyApp" parent="Base.Theme.RickAndMortyApp" />
 </resources>
