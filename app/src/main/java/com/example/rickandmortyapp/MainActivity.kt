@@ -1,4 +1,5 @@
 package com.example.rickandmortyapp
+
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,19 @@ class MainActivity : AppCompatActivity() {
 
         characterViewModel.characters.observe(this, Observer { characters ->
             characterAdapter.setCharacters(characters)
+        })
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                val totalItemCount = layoutManager.itemCount
+                val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+
+                if (lastVisibleItemPosition + 1 >= totalItemCount) {
+                    characterViewModel.fetchCharacters()
+                }
+            }
         })
     }
 }

@@ -10,17 +10,28 @@ class CharacterViewModel : ViewModel() {
     private val _characters = MutableLiveData<List<Character>>()
     val characters: LiveData<List<Character>> get() = _characters
 
+    private var currentPage = 1
+    private var isLoading = false
+    private val allCharacters = mutableListOf<Character>()
+
     init {
         fetchCharacters()
     }
 
-    private fun fetchCharacters() {
+    fun fetchCharacters() {
+        if (isLoading) return
+        isLoading = true
+
         viewModelScope.launch {
             try {
-                val response: CharacterResponse = RetrofitInstance.api.getCharacters(1)
-                _characters.value = response.results
+                val response: CharacterResponse = RetrofitInstance.api.getCharacters(currentPage)
+                allCharacters.addAll(response.results)
+                _characters.value = allCharacters
+                currentPage++
             } catch (e: Exception) {
                 // Gestion des exceptions
+            } finally {
+                isLoading = false
             }
         }
     }
