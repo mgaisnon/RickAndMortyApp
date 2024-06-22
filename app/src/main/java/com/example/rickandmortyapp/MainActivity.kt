@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = characterAdapter
         val toolbar : MaterialToolbar = findViewById(R.id.toolbar)
-        toolbar.title = "Rick & Morty"
+        toolbar.title = "Rick et Morty"
 
         characterViewModel.characters.observe(this, Observer { characters ->
             characterAdapter.setCharacters(characters)

@@ -3,7 +3,7 @@
     android:id="@+id/ItemView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:background="#00FFFFFF"
     android:clickable="true"
     android:orientation="horizontal"
     android:padding="8dp">
@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        app:civ_border_color="#020202"
+        app:civ_border_color="#FFFFFF"
         app:civ_border_overlay="true"
         app:civ_border_width="5px" />
 
@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColorLink="#FFFFFF"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -37,12 +38,14 @@
             android:id="@+id/statusTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:textColorLink="#FFFFFF" />
 
         <TextView
             android:id="@+id/speciesTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:textColorLink="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>
